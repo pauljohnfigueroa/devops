@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "eurolinux-vagrant/centos-stream-9"
+  config.vm.box = "ubuntu/jammy64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-   config.vm.network "private_network", ip: "192.168.56.16"
+   config.vm.network "private_network", ip: "192.168.56.14"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
   
   # Windows Path
   # config.vm.synced_folder "F:\\scripts\\shellscripts", "/opt/scripts"
-  # config.vm.synced_folder "D:\\VAGRANT-VMS\\synced_folders\\myscripts", "/opt/myscripts"
+  config.vm.synced_folder "D:\\VAGRANT-VMS\\synced_folders\\myscripts", "/opt/myscripts"
    
   # MacOS
   #  config.vm.synced_folder "/Users/imran/Desktop/scripts", "/opt/scripts"
@@ -61,8 +61,8 @@ Vagrant.configure("2") do |config|
   #   vb.gui = true
   #
   #   # Customize the amount of memory on the VM:
-      vb.memory = "1600"
-	   vb.cpus = "1"
+     vb.memory = "1600"
+	 vb.cpus = "1"
    end
   #
   # View the documentation for the provider you are using for more
@@ -72,8 +72,8 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   
-  # Make sure that commands are not interactive
   config.vm.provision "shell", inline: <<-SHELL
-     yum install httpd wget unzip git -y  
+     apt-get update
+     apt-get install -y apache2
   SHELL
 end
