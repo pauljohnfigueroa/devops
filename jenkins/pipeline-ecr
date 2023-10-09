@@ -6,9 +6,9 @@ pipeline {
 	}
 
     environment {
-        registryCredential = 'ecr:us-east-2:awscreds'
-        appRegistry = "951401132355.dkr.ecr.us-east-2.amazonaws.com/vprofileappimg"
-        vprofileRegistry = "https://951401132355.dkr.ecr.us-east-2.amazonaws.com"
+        registryCredential = 'ecr:us-east-21:awscredential'
+        appRegistry = "456809678416.dkr.ecr.us-east-1.amazonaws.com/vprofileappimg"
+        vprofileRegistry = "https://456809678416.dkr.ecr.us-east-1.amazonaws.com"
     }
   stages {
     stage('Fetch code'){
